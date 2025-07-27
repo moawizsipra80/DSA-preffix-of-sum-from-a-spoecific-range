@@ -1,0 +1,29 @@
+class Solution {
+  public:
+    vector<int> maxPrefixes(vector<int>& arr, vector<int>& leftIndex,
+                            vector<int>& rightIndex)
+    {
+    vector<int>res;
+    // vector<int>preffix(arr.size());
+    int preffix;
+    int lp=0;
+    int rp=0;
+    int maxs=INT_MIN;
+    int currsum=0;
+    for(int i=0;i<leftIndex.size();i++)
+    {
+   preffix=0;
+   maxs=INT_MIN;
+    lp=leftIndex[i];
+    rp=rightIndex[i];
+    for(int j=lp;j<=rp;j++)
+    {
+    preffix+=arr[j];
+    maxs=max(preffix,maxs);    
+    }           
+    res.push_back(maxs);      
+    }    
+     return res;       
+        
+    }
+};
